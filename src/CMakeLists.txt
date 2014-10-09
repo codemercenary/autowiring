@@ -9,7 +9,7 @@ if(APPLE)
   # Boost is actually required on Mac
   find_package(Boost REQUIRED)
 else()
-  find_package(Boost)
+  find_package(Boost QUIET)
 endif()
 
 # If we can find boost, then go ahead and pull in its include directory

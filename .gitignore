@@ -33,3 +33,4 @@ autowiring-*-*.msi
 autowiring.xcodeproj
 autowiring/AutowiringConfig.h
 *.nupkg
+packages
