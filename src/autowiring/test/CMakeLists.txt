@@ -8,6 +8,7 @@ set(AutowiringTest_SRCS
   AutoFilterCollapseRulesTest.cpp
   AutoFilterDiagnosticsTest.cpp
   AutoFilterFunctionTest.cpp
+  AutoFilterFutureTest.cpp
   AutoFilterSequencing.cpp
   AutoFilterTest.cpp
   AutoInjectableTest.cpp
