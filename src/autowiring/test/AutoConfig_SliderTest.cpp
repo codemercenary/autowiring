@@ -32,3 +32,9 @@ namespace {
     }
   };
 }
+
+TEST_F(AutoConfig_SliderTest, CanFindAllSliders) {
+  AutoCurrentContext ctxt;
+  ctxt->Config.When([] (const aw::config_field& field, const slider&) {
+  });
+}
