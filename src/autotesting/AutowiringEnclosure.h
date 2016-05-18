@@ -88,9 +88,12 @@ public:
   const bool allowGlobalReferences;
   // The context that is current for the test being run right now
   std::shared_ptr<CoreContext> m_ctxt;
+  _CrtMemState state;
 
   // Base overrides:
   void OnTestStart(const testing::TestInfo& info) override {
+    // Memory leak recording
+    _CrtMemCheckpoint(&state);
 
     // Set global context current first, then initiate
     AutoGlobalContext global;
@@ -152,5 +155,8 @@ public:
     // No more references to this context except for the pointer we hold ourselves
     ASSERT_TRUE(ctxt.unique()) << "Detected a dangling context reference after test termination, context may be leaking";
     ctxt = {};
+
+    // Memory leak reporting
+    _CrtMemDumpAllObjectsSince(&state);
   }
 };
